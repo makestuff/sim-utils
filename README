@@ -1,0 +1,5 @@
+--------- HARDWARE DESCRIPTION LANGUAGE SIMULATION & TESTING UTILITIES ---------
+
+A collection of utilities to help with testing digital designs in simulation:
+
+    hex_util: Convert from bit-vectors to hex digits and back again.
