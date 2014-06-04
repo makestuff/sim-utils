@@ -24,8 +24,9 @@ package hex_util is
 	function to_2(c : character) return std_logic_vector;
 	function to_3(c : character) return std_logic_vector;
 	function to_4(c : character) return std_logic_vector;
-	function from_4(nibble : std_logic_vector(3 downto 0)) return character;
+	function from_1(oneBit : std_logic) return character;
 	function from_2(twoBits : std_logic_vector(1 downto 0)) return character;
+	function from_4(nibble : std_logic_vector(3 downto 0)) return character;
 end package;
 
 package body hex_util is
@@ -176,6 +177,23 @@ package body hex_util is
 			when "XX" =>
 				return 'X';
 			when "ZZ" =>
+				return 'Z';
+			when others =>
+				return 'U';
+		end case;
+	end function;
+
+	-- Return a 0/1 character representation of the supplied std_logic
+	function from_1(oneBit : std_logic) return character is
+	begin
+		case oneBit is
+			when '0' =>
+				return '0';
+			when '1' =>
+				return '1';
+			when 'X' =>
+				return 'X';
+			when 'Z' =>
 				return 'Z';
 			when others =>
 				return 'U';
